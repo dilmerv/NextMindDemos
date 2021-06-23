@@ -1,0 +1,1 @@
+Project extended Version: 1.4.0-build.2021-05-05-11-30-26-author.Arthur Biancarelli-host.MB15.local-diff.0-number.1620211457-branch.EEGinLSCP/: ab/1.4.0/static/1 libnm-bluetooth: dev API-config: dev libnm-processing: dev

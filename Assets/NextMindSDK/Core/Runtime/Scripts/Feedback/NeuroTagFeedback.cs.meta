@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0cf864fc69e6036418defc1fdb78f5f5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - neuroTag: {instanceID: 0}
+  - spriteOn: {instanceID: 0}
+  - spriteOff: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
