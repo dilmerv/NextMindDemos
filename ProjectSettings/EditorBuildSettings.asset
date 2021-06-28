@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Calibration_VR.unity
     guid: c976ecca933c8cc46837976e32c22c1f
+  - enabled: 1
+    path: Assets/Scenes/Prototype_VR.unity
+    guid: 9da4f3e6ca131984d8a29cb25b8027a9
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ba615aac73f18014983f7e56806110c6, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 483babe8adbb9624da02c602ca9e120c, type: 2}
