@@ -1,7 +1,6 @@
 using NextMind.NeuroTags;
 using UnityEngine;
 
-[RequireComponent(typeof(NeuroTag))]
 public class NeuroTagColorRange : NeuroTagSimple
 {
     [SerializeField]

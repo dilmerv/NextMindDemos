@@ -1,7 +1,6 @@
 using NextMind.NeuroTags;
 using UnityEngine;
 
-[RequireComponent(typeof(NeuroTag))]
 [RequireComponent(typeof(AudioSource))]
 public class NeuroTagDoor : NeuroTagSimple
 {

@@ -2,7 +2,6 @@ using NextMind.NeuroTags;
 using TMPro;
 using UnityEngine;
 
-
 [RequireComponent(typeof(NeuroTag))]
 public class NeuroTagSimple : MonoBehaviour
 {
@@ -13,12 +12,12 @@ public class NeuroTagSimple : MonoBehaviour
 
     private void OnEnable()
     {
-        this.OnSetup();    
+        OnSetup();    
     }
 
     private void Update()
     {
-        this.UpdateNeuroTag();
+        UpdateNeuroTag();
     }
 
     public virtual void OnSetup()
@@ -43,6 +42,7 @@ public class NeuroTagSimple : MonoBehaviour
     {
         overlayValue.text = $"OnTriggered executed";
     }
+
     public virtual void OnMaintained()
     {
         overlayValue.text = $"OnMaintained executed";

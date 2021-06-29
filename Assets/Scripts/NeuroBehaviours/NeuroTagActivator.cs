@@ -2,7 +2,6 @@ using NextMind.NeuroTags;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(NeuroTag))]
 public class NeuroTagActivator : NeuroTagSimple
 {
     [SerializeField]
