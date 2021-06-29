@@ -13,22 +13,17 @@ public class NeuroTagActivator : NeuroTagSimple
 
     private bool isActivated = false;
 
-    public bool IsActivated
-    {
-        get { return IsActivated; }
-        set { isActivated = value; }
-    }
-
     public override void OnConfidenceChanged(float value)
     {
+        base.OnConfidenceChanged(value);
+
         if (isActivated)
             return;
 
-        base.OnConfidenceChanged(value);
-        
         if (value >= minConfidence)
         {
             OnTriggerOn?.Invoke();
+            isActivated = true;
         }
     }
 }

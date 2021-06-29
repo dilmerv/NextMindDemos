@@ -2,6 +2,7 @@ using NextMind.NeuroTags;
 using UnityEngine;
 
 [RequireComponent(typeof(NeuroTag))]
+[RequireComponent(typeof(AudioSource))]
 public class NeuroTagDoor : NeuroTagSimple
 {
     [SerializeField]
@@ -19,10 +20,13 @@ public class NeuroTagDoor : NeuroTagSimple
 
     private float openTime;
 
+    private AudioSource audioSource;
+
     public override void OnSetup()
     {
         base.OnSetup();
         initialLocation = transform.localPosition;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void UpdateNeuroTag()
@@ -31,6 +35,7 @@ public class NeuroTagDoor : NeuroTagSimple
         {
             transform.localPosition = initialLocation;
             isClosed = true;
+            audioSource?.Play();
         }
     }
 
@@ -44,5 +49,6 @@ public class NeuroTagDoor : NeuroTagSimple
         transform.localPosition = targetLocation;
         isClosed = false;
         openTime = Time.time;
+        audioSource?.Play();
     }
 }
