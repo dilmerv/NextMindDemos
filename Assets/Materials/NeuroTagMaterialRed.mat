@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NeuroTagMaterial
+  m_Name: NeuroTagMaterialRed
   m_Shader: {fileID: 4800000, guid: 1461b47fd2083a84b84042d9c294431b, type: 3}
   m_ShaderKeywords: CONSTANT_SIZE ETC1_EXTERNAL_ALPHA MAIN_ALPHA TRIPLANAR _ALPHATEST_ON
   m_LightmapFlags: 4
@@ -104,7 +104,7 @@ Material:
     - _UseMainTexAlpha: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Color: {r: 0.8490566, g: 0.117479436, b: 0.117479436, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
