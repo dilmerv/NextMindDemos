@@ -4,13 +4,29 @@ using UnityEngine.Events;
 public class NeuroTagActivator : NeuroTagSimple
 {
     [SerializeField]
-    private float minConfidence = 0.15f;
+    private float minConfidence = 0.1f;
 
-    public UnityEvent OnTriggerOn;
+    [SerializeField]
+    private UnityEvent OnTriggerOn;
 
-    public override void OnTriggered()
+    private bool isActivated = false;
+
+    public bool IsActivated
     {
-        base.OnTriggered();
-        OnTriggerOn?.Invoke();
+        get { return IsActivated; }
+        set { isActivated = value; }
+    }
+
+    public override void OnConfidenceChanged(float value)
+    {
+        if (isActivated)
+            return;
+
+        base.OnConfidenceChanged(value);
+        
+        if (value >= minConfidence)
+        {
+            OnTriggerOn?.Invoke();
+        }
     }
 }

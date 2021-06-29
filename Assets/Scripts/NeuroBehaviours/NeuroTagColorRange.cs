@@ -22,6 +22,8 @@ public class NeuroTagColorRange : NeuroTagSimple
     
     public override void OnConfidenceChanged(float value)
     {
+        base.OnConfidenceChanged(value);
+
         if (value >= minConfidence)
         {
             neuroTagRenderer.material.color = targetColor;
