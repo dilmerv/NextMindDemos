@@ -24,12 +24,12 @@ public class DeviceManager : Singleton<DeviceManager>
         neuroManager.onDeviceDisconnected.AddListener(OnDeviceStatusChanged);
         neuroManager.onDeviceUnavailable.AddListener(OnDeviceStatusChanged);
 
-        connectedDevice.onConnectionStatusChanged.AddListener(OnDeviceConnectionChanged);
+        connectedDevice?.onConnectionStatusChanged?.AddListener(OnDeviceConnectionChanged);
     }
 
     private void OnDeviceStatusChanged(Device device)
     {
-        deviceStatus.text = $"{device.ConnectionStatus}";
+        deviceStatus.text = $"{device?.ConnectionStatus ?? ConnectionStatus.Unavailable}";
     }
 
     private void OnDeviceConnectionChanged(ConnectionStatus status)
