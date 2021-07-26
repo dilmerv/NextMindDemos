@@ -27,11 +27,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Hub_VR.unity
     guid: f3ab4896bc86b1f419ec23a31841f28c
   - enabled: 1
+    path: Assets/Scenes/Hub_VR_v2.unity
+    guid: a8a138f935299e340b0a7c7e6b731ba7
+  - enabled: 1
     path: Assets/Scenes/Calibration_VR.unity
     guid: c976ecca933c8cc46837976e32c22c1f
   - enabled: 1
     path: Assets/Scenes/Prototype_VR.unity
     guid: 9da4f3e6ca131984d8a29cb25b8027a9
+  - enabled: 1
+    path: Assets/Scenes/Prototype_VR_v2.unity
+    guid: dfc0dd7c1694dc041bd18b3c7367d0cb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ba615aac73f18014983f7e56806110c6, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 483babe8adbb9624da02c602ca9e120c, type: 2}

@@ -1,6 +1,8 @@
+using NextMind.NeuroTags;
 using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(NeuroTag))]
 public class NeuroTagSimple : MonoBehaviour
 {
     [SerializeField]
