@@ -1,8 +1,6 @@
-using NextMind.NeuroTags;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(NeuroTag))]
 public class NeuroTagSimple : MonoBehaviour
 {
     [SerializeField]
@@ -10,14 +8,16 @@ public class NeuroTagSimple : MonoBehaviour
 
     protected Transform visualObject;
 
+    public float LastConfidenceValue { get; private set; }
+
     private void OnEnable()
     {
-        OnSetup();    
+        this.OnSetup();    
     }
 
     private void Update()
     {
-        UpdateNeuroTag();
+        this.UpdateNeuroTag();
     }
 
     public virtual void OnSetup()
@@ -35,21 +35,27 @@ public class NeuroTagSimple : MonoBehaviour
 
     public virtual void OnConfidenceChanged(float value)
     {
+        LastConfidenceValue = value;
+
+        if (overlayValue == null) return;
         overlayValue.text = $"{value}";
     }
 
     public virtual void OnTriggered()
     {
+        if (overlayValue == null) return;
         overlayValue.text = $"OnTriggered executed";
     }
 
     public virtual void OnMaintained()
     {
+        if (overlayValue == null) return;
         overlayValue.text = $"OnMaintained executed";
     }
 
     public virtual void OnReleased()
     {
+        if (overlayValue == null) return;
         overlayValue.text = $"OnReleased executed";
     }
 }
