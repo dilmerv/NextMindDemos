@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        scoreText.text = $"{LoadScore().ToString("00")}";
+        timerText.text = $"{LoadScore().ToString("00")}";
         gameStateText.text = $"{gameState}";
     }
 
