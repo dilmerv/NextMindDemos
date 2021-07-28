@@ -35,22 +35,24 @@ public class GameManager : MonoBehaviour
 
     public enum GameState
     { 
-        NoStarted,
+        NotStarted,
         Playing,
         Lost,
         Won
     }
 
-    private GameState gameState = GameState.NoStarted;
+    private GameState gameState = GameState.NotStarted;
 
-    private void Awake()
+    private void Awake() => SetInitialOptions();
+    
+    private void SetInitialOptions()
     {
-        // start with all mind components disabled
-        ToggleMindProvider(available: false);
+        mindContinuousMoveProvider.gameObject.transform.position = Vector3.zero;
+        gameState = GameState.NotStarted;
 
+        ToggleMindProvider(available: false);
         timerText.text = $"{LoadScore().ToString("00")}";
         gameStateText.text = $"{gameState}";
-
         restartButton.SetActive(false);
     }
 
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
     {
         gameTime = 0;
         gameState = GameState.Playing;
+        gameStateText.text = $"{gameState}";
         ToggleMindProvider(available: true);
     }
 
@@ -91,16 +94,21 @@ public class GameManager : MonoBehaviour
         // lost game state
         if (gameTime > minLevelTime && gameState == GameState.Playing)
         {
-            SetAs(GameState.Lost);        }
+            SetAs(GameState.Lost);        
+        }
 
         // win game state
         if (gameTime <= minLevelTime && gameState == GameState.Playing && 
             mindContinuousMoveProvider.transform.position.z >= minLevelBeatDistance)
         {
-            SetAs(GameState.Won);        }
+            SetAs(GameState.Won);        
+        }
     }
 
-    public void RestartLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    public void Restart() 
+    {
+        SetInitialOptions();
+    }
 
     private void SaveScore()
     {
