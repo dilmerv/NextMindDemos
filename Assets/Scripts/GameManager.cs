@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI timerText;
+
+    [SerializeField]
+    private GameObject restartButton;
 
     [SerializeField]
     private GameObject[] mindControls;
@@ -41,8 +46,13 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        // start with all mind components disabled
+        ToggleMindProvider(available: false);
+
         timerText.text = $"{LoadScore().ToString("00")}";
         gameStateText.text = $"{gameState}";
+
+        restartButton.SetActive(false);
     }
 
     public void Play()
@@ -61,6 +71,8 @@ public class GameManager : MonoBehaviour
             gameStateText.text = $"<color=red>You've {gameState} !</color>";
         else if (this.gameState == GameState.Won)
             gameStateText.text = $"<color=green>You've {gameState} !</color>";
+
+        restartButton.SetActive(true);
     }
 
     private void ToggleMindProvider(bool available)
@@ -80,16 +92,16 @@ public class GameManager : MonoBehaviour
         // lost game state
         if (gameTime > minLevelTime && gameState == GameState.Playing)
         {
-            SetAs(GameState.Lost);
-        }
+            SetAs(GameState.Lost);        }
 
         // win game state
         if (gameTime <= minLevelTime && gameState == GameState.Playing && 
             mindContinuousMoveProvider.transform.position.z >= minLevelBeatDistance)
         {
-            SetAs(GameState.Won);
-        }
+            SetAs(GameState.Won);        }
     }
+
+    public void RestartLevel() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     private void SaveScore()
     {
